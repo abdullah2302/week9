@@ -12,10 +12,10 @@ import {
 
 function Footer() {
     return (
-        <footer className="border-t border-slate-800 bg-slate-950 text-slate-400">
+        <footer className="border-t border-slate-800 bg-slate-950 text-slate-400 text-center">
             <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
-                    <h3 className="mb-3 flex items-center text-2xl font-bold text-white">
+                    <h3 className="mb-3 flex items-center text-2xl font-bold text-white justify-center" >
                         <FontAwesomeIcon 
                             icon={faBagShopping} 
                             className="text-indigo-400"
@@ -27,7 +27,7 @@ function Footer() {
                         door.
                     </p>
 
-                    <div className="mt-4 flex gap-3 text-lg">
+                    <div className="mt-4 flex gap-3 text-lg justify-center ">
                         <a href="#" className="text-slate-500 transition hover:text-indigo-400">
                             <FontAwesomeIcon icon={faFacebook} />
                         </a>
