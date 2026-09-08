@@ -25,11 +25,24 @@ function ProductCard({ product, onAddToCart, onDelete }) {
 
     return (
         <div className="group overflow-hidden rounded-xl border border-slate-800 bg-slate-900 shadow-sm transition hover:border-slate-700 hover:shadow-lg hover:shadow-black/30">
-            <Link to={`/products/${product.id}`}>
-                <div className="flex h-40 items-center justify-center bg-slate-800 text-4xl text-slate-500 transition group-hover:text-slate-400">
-                    <FontAwesomeIcon icon={icon} />
-                </div>
-            </Link>
+             <Link to={`/products/${product.id}`}>
+    <div className="flex aspect-square items-center justify-center overflow-hidden bg-slate-800">
+        {product.image ? (
+            <img
+                src={product.image}
+                alt={product.name}
+                className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                }}
+            />
+        ) : (
+            <i
+                className={`${icon} text-4xl text-slate-500 transition group-hover:text-slate-400`}
+            ></i>
+        )}
+    </div>
+</Link>
 
             <div className="p-4">
                 <p className="mb-1 text-xs font-medium uppercase tracking-wide text-indigo-400">

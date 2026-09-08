@@ -4,41 +4,47 @@
     "name": "Wireless Mouse",
     "category": "Electronics",
     "price": 25,
-    "description": "A smooth, responsive wireless mouse with a 12-month battery life and silent clicks."
+    "description": "A smooth, responsive wireless mouse with a 12-month battery life and silent clicks.",
+    "image": "/images/wirelessMouse.jpg"
   },
   {
     "id": 2,
     "name": "Coffee Mug",
     "category": "Kitchen",
     "price": 12,
-    "description": "Double-walled ceramic mug that keeps your coffee hot for longer. Dishwasher safe."
+    "description": "Double-walled ceramic mug that keeps your coffee hot for longer. Dishwasher safe.",
+    "image": "/images/coffeeMug.jpg"
   },
   {
     "id": 3,
     "name": "Notebook",
     "category": "Stationery",
     "price": 5,
-    "description": "120-page dotted notebook with a durable hardcover, perfect for journaling or sketching."
+    "description": "120-page dotted notebook with a durable hardcover, perfect for journaling or sketching.",
+    "image": "/images/notebook.jpg"
   },
   {
     "id": 4,
     "name": "Bluetooth Speaker",
     "category": "Electronics",
     "price": 45,
-    "description": "Compact speaker with rich bass and 10 hours of playtime on a single charge."
+    "description": "Compact speaker with rich bass and 10 hours of playtime on a single charge.",
+    "image": "/images/bluetoothSpeaker.jpg"
   },
   {
     "id": 5,
     "name": "Ceramic Plate Set",
     "category": "Kitchen",
     "price": 30,
-    "description": "Set of 4 minimalist ceramic plates, microwave and dishwasher safe."
+    "description": "Set of 4 minimalist ceramic plates, microwave and dishwasher safe.",
+    "image": "/images/ceramicPlates.jpg"
   },
   {
     "id": 6,
     "name": "Desk Lamp",
     "category": "Electronics",
     "price": 22,
-    "description": "Adjustable LED desk lamp with 3 brightness levels and a USB charging port."
+    "description": "Adjustable LED desk lamp with 3 brightness levels and a USB charging port.",
+    "image": "/images/deskLamp.jpg"
   }
 ]

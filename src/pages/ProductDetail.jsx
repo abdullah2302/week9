@@ -56,8 +56,15 @@ function ProductDetail() {
             </button>
 
             <div className="grid gap-8 rounded-xl border border-slate-800 bg-slate-900 p-6 sm:grid-cols-2">
-                <div className="flex h-64 items-center justify-center rounded-lg bg-slate-800 text-6xl text-slate-500">
-                    <FontAwesomeIcon icon={icon} />
+                <div className="flex aspect-square items-center justify-center rounded-lg bg-slate-800 text-6xl text-slate-500">
+                   <img 
+                        src={product.image}
+                        alt={product.name}
+                        className="h-full w-full object-cover"
+                        onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                        }}
+                    />
                 </div>
 
                 <div>
