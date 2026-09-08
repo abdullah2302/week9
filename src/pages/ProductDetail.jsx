@@ -60,6 +60,7 @@ function ProductDetail() {
                    <img 
                         src={product.image}
                         alt={product.name}
+                        loading="lazy"
                         className="h-full w-full object-cover"
                         onError={(e) => {
                             e.currentTarget.style.display = "none";

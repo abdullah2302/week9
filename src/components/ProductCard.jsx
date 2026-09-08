@@ -31,6 +31,7 @@ function ProductCard({ product, onAddToCart, onDelete }) {
             <img
                 src={product.image}
                 alt={product.name}
+                loading="lazy"
                 className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                 onError={(e) => {
                     e.currentTarget.style.display = "none";
