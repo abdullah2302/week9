@@ -6,7 +6,7 @@ const slides = [
         tag: "New arrivals every week",
         title: "Everything you need, all in one place",
         description:
-            "Browse our curated collection of electronics, kitchenware, and everyday essentials — quality picks at honest prices.",
+            "Browse our curated collection of electronics, kitchenware, and everyday essentials quality picks at honest prices.",
         image: "/banners/banner1.jpg",
         gradient: "from-indigo-950 via-slate-900 to-slate-950",
         icon: "fa-solid fa-sparkles",
@@ -24,7 +24,7 @@ const slides = [
         tag: "Kitchen & home essentials",
         title: "Make everyday living a little nicer",
         description:
-            "Mugs, plate sets, and more — practical pieces that make your space feel like home.",
+            "Mugs, plate sets, and more practical pieces that make your space feel like home.",
         image: "/banners/banner3.jpg",
         gradient: "from-slate-900 via-emerald-950 to-slate-950",
         icon: "fa-solid fa-mug-saucer",
@@ -48,13 +48,7 @@ function Hero() {
         setCurrent(index);
     }
 
-    function goPrev() {
-        setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-    }
-
-    function goNext() {
-        setCurrent((prev) => (prev + 1) % slides.length);
-    }
+   
 
     return (
         <section className="relative h-[70vh] min-h-[420px] overflow-hidden text-white">
@@ -104,21 +98,7 @@ function Hero() {
                 </div>
             ))}
 
-            {/* Prev / Next arrows */}
-            <button
-                onClick={goPrev}
-                aria-label="Previous slide"
-                className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-slate-950/40 text-slate-200 transition hover:bg-slate-950/70 sm:left-6"
-            >
-                <i className="fa-solid fa-chevron-left"></i>
-            </button>
-            <button
-                onClick={goNext}
-                aria-label="Next slide"
-                className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-slate-950/40 text-slate-200 transition hover:bg-slate-950/70 sm:right-6"
-            >
-                <i className="fa-solid fa-chevron-right"></i>
-            </button>
+            
 
             {/* Dots */}
             <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2">
