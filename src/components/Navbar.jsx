@@ -28,7 +28,7 @@ function Navbar() {
                 <Link
                     to="/"
                     onClick={closeMenu}
-                    className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white"
+                    className="flex items-center  text-2xl font-bold tracking-tight text-white"
                 >
                     <FontAwesomeIcon 
                         icon={faBagShopping} 
