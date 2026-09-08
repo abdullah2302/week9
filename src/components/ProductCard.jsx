@@ -37,9 +37,9 @@ function ProductCard({ product, onAddToCart, onDelete }) {
                 }}
             />
         ) : (
-            <i
+            <FontAwesomeIcon
                 className={`${icon} text-4xl text-slate-500 transition group-hover:text-slate-400`}
-            ></i>
+            />
         )}
     </div>
 </Link>
