@@ -15,7 +15,7 @@ function Footer() {
         <footer className="border-t border-slate-800 bg-slate-950 text-slate-400">
             <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
-                    <h3 className="mb-3 flex items-center gap-2 text-lg font-bold text-white">
+                    <h3 className="mb-3 flex items-center text-2xl font-bold text-white">
                         <FontAwesomeIcon 
                             icon={faBagShopping} 
                             className="text-indigo-400"

@@ -16,7 +16,7 @@ function Navbar() {
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
                 <Link
                     to="/"
-                    className="flex items-center gap-2 text-xl font-bold tracking-tight text-white"
+                    className="flex items-center  text-2xl font-bold tracking-tight text-white"
                 >
                     <FontAwesomeIcon 
                         icon={faBagShopping} 
