@@ -9,7 +9,7 @@ import {
     faArrowLeft,
     faCartPlus
 } from '@fortawesome/free-solid-svg-icons';
-import { initialProducts } from "../data/products";
+import initialProducts from "../data/products.json";
 import { useCart } from "../context/CartContext";
 
 const categoryIcons = {

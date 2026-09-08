@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
-import { initialProducts } from "../data/products";
+import initialProducts from "../data/products.json";
 import { useCart } from "../context/CartContext";
 import ProductCard from "../components/ProductCard";
+
 
 function Home() {
     const { addToCart } = useCart();

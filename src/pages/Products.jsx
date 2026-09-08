@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { initialProducts } from "../data/products";
+import initialProducts from "../data/products.json";
 import { useCart } from "../context/CartContext";
 import ProductForm from "../components/ProductForm";
 import FilterBar from "../components/FilterBar";
