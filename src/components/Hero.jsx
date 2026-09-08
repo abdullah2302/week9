@@ -7,6 +7,7 @@ const slides = [
         title: "Everything you need, all in one place",
         description:
             "Browse our curated collection of electronics, kitchenware, and everyday essentials — quality picks at honest prices.",
+        image: "/banners/banner1.jpg",
         gradient: "from-indigo-950 via-slate-900 to-slate-950",
         icon: "fa-solid fa-sparkles",
     },
@@ -15,6 +16,7 @@ const slides = [
         title: "Upgrade your tech for less, without compromise.",
         description:
             "Wireless mice, speakers, and desk lamps at prices that make sense. Limited-time deals, refreshed weekly.",
+        image: "/banners/banner2.jpg",
         gradient: "from-slate-900 via-purple-950 to-slate-950",
         icon: "fa-solid fa-bolt",
     },
@@ -23,6 +25,7 @@ const slides = [
         title: "Make everyday living a little nicer",
         description:
             "Mugs, plate sets, and more — practical pieces that make your space feel like home.",
+        image: "/banners/banner3.jpg",
         gradient: "from-slate-900 via-emerald-950 to-slate-950",
         icon: "fa-solid fa-mug-saucer",
     },
@@ -54,27 +57,39 @@ function Hero() {
     }
 
     return (
-        <section className="relative overflow-hidden text-white">
+        <section className="relative h-[70vh] min-h-[420px] overflow-hidden text-white">
             {slides.map((slide, index) => (
                 <div
                     key={index}
-                    className={`bg-gradient-to-br ${slide.gradient} transition-opacity duration-700 ease-in-out ${
-                        index === current
-                            ? "relative opacity-100"
-                            : "absolute inset-0 opacity-0"
+                    className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                        index === current ? "opacity-100" : "opacity-0"
                     }`}
                 >
-                    <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-24 text-center">
+                    {/* Small screens: plain gradient, no image */}
+                    <div
+                        className={`absolute inset-0 bg-gradient-to-br md:hidden ${slide.gradient}`}
+                    ></div>
+
+                    {/* Medium screens and up: banner image */}
+                    <div
+                        className="absolute inset-0 hidden bg-cover bg-center md:block"
+                        style={{ backgroundImage: `url(${slide.image})` }}
+                    ></div>
+
+                   
+                    <div className="absolute inset-0 hidden bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-slate-950/10 md:block"></div>
+
+                   <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center gap-6 px-4 text-center sm:px-8 md:items-start md:text-left">
                         <span className="flex items-center gap-2 rounded-full bg-indigo-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-300 ring-1 ring-indigo-500/30">
                             <i className={slide.icon}></i>
                             {slide.tag}
                         </span>
 
-                        <h1 className="max-w-2xl text-4xl font-bold leading-tight sm:text-5xl">
+                        <h1 className="max-w-xl text-4xl font-bold leading-tight sm:text-5xl">
                             {slide.title}
                         </h1>
 
-                        <p className="max-w-xl text-slate-400">
+                        <p className="max-w-md text-slate-200">
                             {slide.description}
                         </p>
 
@@ -115,7 +130,7 @@ function Hero() {
                         className={`h-2 rounded-full transition-all ${
                             index === current
                                 ? "w-6 bg-indigo-400"
-                                : "w-2 bg-slate-600 hover:bg-slate-500"
+                                : "w-2 bg-slate-300/50 hover:bg-slate-200/70"
                         }`}
                     />
                 ))}
