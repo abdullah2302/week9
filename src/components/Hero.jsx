@@ -12,7 +12,7 @@ const slides = [
     },
     {
         tag: "Up to 40% off electronics",
-        title: "Upgrade your tech for less",
+        title: "Upgrade your tech for less, without compromise.",
         description:
             "Wireless mice, speakers, and desk lamps at prices that make sense. Limited-time deals, refreshed weekly.",
         gradient: "from-slate-900 via-purple-950 to-slate-950",
