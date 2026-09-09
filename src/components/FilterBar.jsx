@@ -1,13 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-function FilterBar({
-    categories,
-    categoryFilter,
-    onCategoryChange,
-    searchTerm,
-    onSearchChange,
-}) {
+function FilterBar({categories, categoryFilter, onCategoryChange, searchTerm, onSearchChange,})
+ {
     return (
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="relative flex-1 sm:max-w-xs">
