@@ -9,13 +9,17 @@ function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const linkClass = ({ isActive }) =>
-        `transition hover:text-indigo-400 ${
-            isActive ? "text-indigo-400" : "text-slate-300"
+        `relative py-1 transition-colors hover:text-indigo-400 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:rounded-full after:bg-indigo-400 after:transition-all after:duration-300 ${
+            isActive
+                ? "text-white after:w-full"
+                : "text-slate-400 after:w-0"
         }`;
 
     const mobileLinkClass = ({ isActive }) =>
-        `block rounded-md px-3 py-2 text-base transition hover:bg-slate-800 hover:text-indigo-400 ${
-            isActive ? "text-indigo-400" : "text-slate-300"
+        `block rounded-lg px-4 py-2.5 text-base transition-colors ${
+            isActive
+                ? "bg-indigo-500/10 text-indigo-400"
+                : "text-slate-300 hover:bg-slate-800/80 hover:text-white"
         }`;
 
     function closeMenu() {
@@ -23,17 +27,16 @@ function Navbar() {
     }
 
     return (
-        <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
+        <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
                 <Link
                     to="/"
                     onClick={closeMenu}
-                    className="flex items-center  text-2xl font-bold tracking-tight text-white"
+                    className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white"
                 >
-                    <FontAwesomeIcon 
-                        icon={faBagShopping} 
-                        className="text-indigo-400"
-                    />
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-400 ring-1 ring-indigo-500/20">
+                        <FontAwesomeIcon icon={faBagShopping} className="text-base" />
+                    </span>
                     Shop<span className="text-indigo-400">ly</span>
                 </Link>
 
@@ -56,15 +59,15 @@ function Navbar() {
                     <Link
                         to="/cart"
                         onClick={closeMenu}
-                        className="relative rounded-full p-2 text-slate-300 transition hover:bg-slate-800 hover:text-white"
+                        className="relative flex h-10 w-10 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-slate-800/80 hover:text-white"
                     >
-                        <FontAwesomeIcon 
-                            icon={faCartShopping} 
+                        <FontAwesomeIcon
+                            icon={faCartShopping}
                             className="text-lg"
                         />
 
                         {cartCount > 0 && (
-                            <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500 text-[11px] font-bold text-white">
+                            <span className="absolute -right-0.5 -top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500 text-[11px] font-bold text-white ring-2 ring-slate-950">
                                 {cartCount}
                             </span>
                         )}
@@ -75,7 +78,7 @@ function Navbar() {
                         onClick={() => setIsMenuOpen((prev) => !prev)}
                         aria-label="Toggle menu"
                         aria-expanded={isMenuOpen}
-                        className="rounded-md p-2 text-slate-300 transition hover:bg-slate-800 hover:text-white sm:hidden"
+                        className="flex h-10 w-10 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-slate-800/80 hover:text-white sm:hidden"
                     >
                         <FontAwesomeIcon
                             icon={isMenuOpen ? faXmark : faBars}
@@ -86,8 +89,14 @@ function Navbar() {
             </div>
 
             {/* Mobile dropdown menu */}
-            {isMenuOpen && (
-                <nav className="flex flex-col gap-1 border-t border-slate-800 bg-slate-950 px-4 py-3 text-sm font-medium sm:hidden">
+            <nav
+                className={`grid overflow-hidden border-slate-800/80 bg-slate-950/95 backdrop-blur-md transition-all duration-300 ease-in-out sm:hidden ${
+                    isMenuOpen
+                        ? "grid-rows-[1fr] border-t opacity-100"
+                        : "grid-rows-[0fr] border-t-0 opacity-0"
+                }`}
+            >
+                <div className="flex flex-col gap-1 overflow-hidden px-4 py-3 text-sm font-medium">
                     <NavLink to="/" className={mobileLinkClass} onClick={closeMenu} end>
                         Home
                     </NavLink>
@@ -100,8 +109,8 @@ function Navbar() {
                     <NavLink to="/contact" className={mobileLinkClass} onClick={closeMenu}>
                         Contact
                     </NavLink>
-                </nav>
-            )}
+                </div>
+            </nav>
         </header>
     );
 }
