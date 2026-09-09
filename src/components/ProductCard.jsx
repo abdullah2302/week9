@@ -24,7 +24,7 @@ function ProductCard({ product, onAddToCart, onDelete }) {
     };
 
     return (
-        <div className="group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-950/40">
+        <div className="group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-950/40">
             {/* Subtle glow ring on hover */}
             <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 ring-1 ring-inset ring-indigo-400/20 transition-opacity duration-300 group-hover:opacity-100"></div>
 
@@ -40,7 +40,7 @@ function ProductCard({ product, onAddToCart, onDelete }) {
                             src={product.image}
                             alt={product.name}
                             loading="lazy"
-                            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-100"
                             onError={(e) => {
                                 e.currentTarget.style.display = "none";
                                 e.currentTarget.nextSibling.style.display = "flex";
