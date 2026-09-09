@@ -24,7 +24,7 @@ function ProductCard({ product, onAddToCart, onDelete }) {
     };
 
     return (
-        <div className="group overflow-hidden rounded-xl border border-slate-800 bg-slate-900 shadow-sm transition hover:border-slate-700 hover:shadow-lg hover:shadow-black/30">
+        <div className="group overflow-hidden  border border-slate-800 bg-slate-900 shadow-sm transition hover:border-slate-700 hover:shadow-lg hover:shadow-black/30">
              <Link to={`/products/${product.id}`}>
     <div className="flex aspect-square items-center justify-center overflow-hidden bg-slate-800">
         {product.image ? (

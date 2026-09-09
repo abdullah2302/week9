@@ -34,7 +34,7 @@ function Cart() {
                 Your Cart
             </h1>
 
-            <div className="mb-6 divide-y divide-slate-800 rounded-xl border border-slate-800 bg-slate-900">
+            <div className="mb-6 divide-y divide-slate-800 border border-slate-800 bg-slate-900">
                 {cartItems.map((item) => (
                     <div
                         key={item.id}

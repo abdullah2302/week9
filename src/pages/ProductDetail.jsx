@@ -55,7 +55,7 @@ function ProductDetail() {
                 Back
             </button>
 
-            <div className="grid gap-8 rounded-xl border border-slate-800 bg-slate-900 p-6 sm:grid-cols-2">
+            <div className="grid gap-8  border border-slate-800 bg-slate-900 p-6 sm:grid-cols-2">
                 <div className="flex aspect-square items-center justify-center rounded-lg bg-slate-800 text-6xl text-slate-500">
                    <img 
                         src={product.image}

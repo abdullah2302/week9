@@ -27,7 +27,7 @@ function ProductForm({ onAddProduct }) {
     return (
         <form
             onSubmit={handleSubmit}
-            className="mb-8 flex flex-wrap items-end gap-3 rounded-xl border border-slate-800 bg-slate-900 p-5 shadow-sm"
+            className="mb-8 flex flex-wrap items-end gap-3  border border-slate-800 bg-slate-900 p-5 shadow-sm"
         >
             <div className="flex-1 basis-full">
                 <p className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
