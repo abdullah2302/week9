@@ -83,7 +83,6 @@ function Contact() {
                             </span>
                         </li>
                     </ul>
-
                 </div>
 
                 {/* Form - right side, no border */}
