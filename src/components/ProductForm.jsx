@@ -32,7 +32,7 @@ function ProductForm({ onAddProduct }) {
             <div className="flex-1 basis-full">
                 <p className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
                     <i className="fa-solid fa-plus text-indigo-400"></i>
-                    Quick Add Product (demo)
+                    Quick Add Product.
                 </p>
             </div>
 

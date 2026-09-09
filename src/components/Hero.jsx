@@ -59,12 +59,12 @@ function Hero() {
                         index === current ? "opacity-100" : "opacity-0"
                     }`}
                 >
-                    {/* Small screens: plain gradient, no image */}
+                    
                     <div
                         className={`absolute inset-0 bg-gradient-to-br md:hidden ${slide.gradient}`}
                     ></div>
 
-                    {/* Medium screens and up: banner image */}
+                    
                     <div
                         className="absolute inset-0 hidden bg-cover bg-center md:block"
                         style={{ backgroundImage: `url(${slide.image})` }}
