@@ -85,11 +85,20 @@ function ProductForm({ onAddProduct }) {
                 className="min-w-[100px] flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
             />
 
+           <button
+                type="button"
+                onClick={() => document.getElementById("imageInput").click()}
+                className="flex items-center gap-2 rounded-md bg-slate-800 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+            >
+                <i className="fa-solid fa-image"></i>
+                {image ? "Change Image" : "Upload Image"}
+            </button>
             <input
                 type="file"
+                id="imageInput"
                 accept="image/*"
                 onChange={handleImageChange}
-                className="min-w-[140px] flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="hidden"
             />
 
             <button
