@@ -18,7 +18,7 @@ function Footer() {
 
             <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 px-4 py-16 text-center sm:grid-cols-4 sm:gap-10 sm:text-left">
                 <div className="col-span-2 sm:col-span-1">
-                    <h3 className="mb-3 flex items-center justify-center gap-2 text-2xl font-bold tracking-tight text-white sm:justify-start">
+                    <h3 className="mb-3 flex items-center justify-center text-2xl font-bold tracking-tight text-white sm:justify-start">
                         <FontAwesomeIcon 
                             icon={faBagShopping} 
                             className="text-indigo-400"
