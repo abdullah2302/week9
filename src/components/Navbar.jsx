@@ -32,7 +32,7 @@ function Navbar() {
                 <Link
                     to="/"
                     onClick={closeMenu}
-                    className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white"
+                    className="flex items-center text-2xl font-bold tracking-tight text-white"
                 >
                     <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-400 ring-1 ring-indigo-500/20">
                         <FontAwesomeIcon icon={faBagShopping} className="text-base" />
