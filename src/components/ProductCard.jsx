@@ -65,7 +65,7 @@ function ProductCard({ product, onAddToCart, onDelete }) {
                 <div className="flex gap-2">
                     <button
                         onClick={handleAddToCart}
-                        className="flex flex-1 items-center justify-center gap-2 rounded-md bg-indigo-600 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500"
+                        className="flex flex-1 items-center justify-center gap-2 rounded-md bg-indigo-600 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500 shadow-sm hover:shadow-indigo-900/50 sm:flex-none sm:text-base"
                     >
                         <FontAwesomeIcon icon={faCartPlus} />
                         Add to Cart
