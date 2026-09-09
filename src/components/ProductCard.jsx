@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-    faPlug, 
-    faMugSaucer, 
-    faPen, 
-    faBox, 
-    faCartPlus, 
-    faTrash 
+import {
+    faPlug,
+    faMugSaucer,
+    faPen,
+    faBox,
+    faCartPlus,
+    faTrash
 } from '@fortawesome/free-solid-svg-icons';
 
 const categoryIcons = {
@@ -25,25 +25,25 @@ function ProductCard({ product, onAddToCart, onDelete }) {
 
     return (
         <div className="group overflow-hidden  border border-slate-800 bg-slate-900 shadow-sm transition hover:border-slate-700 hover:shadow-lg hover:shadow-black/30">
-             <Link to={`/products/${product.id}`}>
-    <div className="flex aspect-square items-center justify-center overflow-hidden bg-slate-800">
-        {product.image ? (
-            <img
-                src={product.image}
-                alt={product.name}
-                loading="lazy"
-                className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                }}
-            />
-        ) : (
-            <FontAwesomeIcon
-                className={`${icon} text-4xl text-slate-500 transition group-hover:text-slate-400`}
-            />
-        )}
-    </div>
-</Link>
+            <Link to={`/products/${product.id}`}>
+                <div className="flex aspect-square items-center justify-center overflow-hidden bg-slate-800">
+                    {product.image ? (
+                        <img
+                            src={product.image}
+                            alt={product.name}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                            onError={(e) => {
+                                e.currentTarget.style.display = "none";
+                            }}
+                        />
+                    ) : (
+                        <FontAwesomeIcon
+                            className={`${icon} text-4xl text-slate-500 transition group-hover:text-slate-400`}
+                        />
+                    )}
+                </div>
+            </Link>
 
             <div className="p-4">
                 <p className="mb-1 text-xs font-medium uppercase tracking-wide text-indigo-400">

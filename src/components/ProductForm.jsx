@@ -2,8 +2,24 @@ import { useState } from "react";
 
 function ProductForm({ onAddProduct }) {
     const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [price, setPrice] = useState("");
+    const [image, setImage] = useState(null);
+    
+    function handleImageChange(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            setImage(null);
+        }
+    }
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -17,6 +33,7 @@ function ProductForm({ onAddProduct }) {
             name: name.trim(),
             category: category.trim(),
             price: Number(price),
+            image: image,
         });
 
         setName("");
@@ -46,6 +63,14 @@ function ProductForm({ onAddProduct }) {
 
             <input
                 type="text"
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className="min-w-[140px] flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            />
+
+            <input
+                type="text"
                 placeholder="Category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
@@ -58,6 +83,13 @@ function ProductForm({ onAddProduct }) {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 className="min-w-[100px] flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            />
+
+            <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="min-w-[140px] flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
             />
 
             <button
