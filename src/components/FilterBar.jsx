@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass,faFilter } from '@fortawesome/free-solid-svg-icons';
 
 function FilterBar({
     categories,
@@ -10,24 +10,24 @@ function FilterBar({
 }) {
     return (
         <div className="mb-8 flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex flex-wrap gap-6 text-sm">
-                {categories.map((cat) => (
-                    <button
-                        key={cat}
-                        onClick={() => onCategoryChange(cat)}
-                        className={`relative pb-1 font-medium transition ${
-                            categoryFilter === cat
-                                ? "text-slate-900"
-                                : "text-slate-400 hover:text-slate-700"
-                        }`}
-                    >
-                        {cat}
-                        {categoryFilter === cat && (
-                            <span className="absolute -bottom-[25px] left-0 h-0.5 w-full bg-slate-900" />
-                        )}
-                    </button>
-                ))}
-            </div>
+           <div className="flex items-center gap-3">
+    <FontAwesomeIcon
+        icon={faFilter}
+        className="text-slate-500 text-sm"
+    />
+
+    <select
+        value={categoryFilter}
+        onChange={(e) => onCategoryChange(e.target.value)}
+        className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 outline-none transition focus:border-slate-400"
+    >
+        {categories.map((cat) => (
+            <option key={cat} value={cat}>
+                {cat}
+            </option>
+        ))}
+    </select>
+</div>
 
             <div className="relative sm:w-56">
                 <FontAwesomeIcon
