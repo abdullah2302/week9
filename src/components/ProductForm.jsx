@@ -1,22 +1,17 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 function ProductForm({ onAddProduct }) {
     const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState(null);
-    
+
     function handleImageChange(e) {
         const file = e.target.files[0];
         if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setImage(reader.result);
-            };
-            reader.readAsDataURL(file);
-        } else {
-            setImage(null);
+            setImage(file);
         }
     }
 
@@ -33,7 +28,6 @@ function ProductForm({ onAddProduct }) {
             name: name.trim(),
             category: category.trim(),
             price: Number(price),
-            image: image,
         });
 
         setName("");
@@ -44,12 +38,11 @@ function ProductForm({ onAddProduct }) {
     return (
         <form
             onSubmit={handleSubmit}
-            className="mb-8 flex flex-wrap items-end gap-3  border border-slate-800 bg-slate-900 p-5 shadow-sm"
+            className="mb-10 flex flex-wrap items-end gap-3 border-b border-slate-100 pb-8"
         >
             <div className="flex-1 basis-full">
-                <p className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-300">
-                    <i className="fa-solid fa-plus text-indigo-400"></i>
-                    Quick Add Product.
+                <p className="mb-3 text-xs font-medium uppercase tracking-wide text-slate-400">
+                    Quick Add Product (demo)
                 </p>
             </div>
 
@@ -58,15 +51,7 @@ function ProductForm({ onAddProduct }) {
                 placeholder="Product name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="min-w-[140px] flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-            />
-
-            <input
-                type="text"
-                placeholder="Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                className="min-w-[140px] flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="min-w-[140px] flex-1 border-b border-slate-200 bg-transparent px-1 py-2 text-sm text-slate-900 placeholder-slate-400 focus:border-slate-900 focus:outline-none"
             />
 
             <input
@@ -74,7 +59,7 @@ function ProductForm({ onAddProduct }) {
                 placeholder="Category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="min-w-[140px] flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="min-w-[140px] flex-1 border-b border-slate-200 bg-transparent px-1 py-2 text-sm text-slate-900 placeholder-slate-400 focus:border-slate-900 focus:outline-none"
             />
 
             <input
@@ -82,10 +67,9 @@ function ProductForm({ onAddProduct }) {
                 placeholder="Price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="min-w-[100px] flex-1 rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="min-w-[100px] flex-1 border-b border-slate-200 bg-transparent px-1 py-2 text-sm text-slate-900 placeholder-slate-400 focus:border-slate-900 focus:outline-none"
             />
-
-           <button
+             <button
                 type="button"
                 onClick={() => document.getElementById("imageInput").click()}
                 className="flex items-center gap-2 rounded-md bg-slate-800 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
@@ -103,9 +87,9 @@ function ProductForm({ onAddProduct }) {
 
             <button
                 type="submit"
-                className="flex items-center gap-2 rounded-md bg-indigo-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500"
+                className="flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2 text-sm font-medium text-white transition hover:bg-slate-700"
             >
-                <i className="fa-solid fa-plus"></i>
+                <FontAwesomeIcon icon={faPlus} className="text-xs" />
                 Add Product
             </button>
         </form>

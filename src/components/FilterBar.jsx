@@ -1,38 +1,46 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-function FilterBar({categories, categoryFilter, onCategoryChange, searchTerm, onSearchChange,})
- {
+function FilterBar({
+    categories,
+    categoryFilter,
+    onCategoryChange,
+    searchTerm,
+    onSearchChange,
+}) {
     return (
-        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="relative flex-1 sm:max-w-xs">
-                <FontAwesomeIcon 
-                    icon={faMagnifyingGlass}
-                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-500 dark:text-slate-400"
-                />
-                <input
-                    type="text"
-                    placeholder="Search products..."
-                    value={searchTerm}
-                    onChange={(e) => onSearchChange(e.target.value)}
-                    className="w-full rounded-full border border-slate-300 bg-white py-2 pl-9 pr-4 text-sm text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
-                />
-            </div>
-
-            <div className="flex flex-wrap gap-2">
+        <div className="mb-8 flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-wrap gap-6 text-sm">
                 {categories.map((cat) => (
                     <button
                         key={cat}
                         onClick={() => onCategoryChange(cat)}
-                        className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
+                        className={`relative pb-1 font-medium transition ${
                             categoryFilter === cat
-                                ? "bg-indigo-600 text-white"
-                                : "bg-slate-100 text-slate-600 ring-1 ring-slate-300 hover:bg-slate-200 hover:text-slate-900 dark:bg-slate-900 dark:text-slate-400 dark:ring-slate-700 dark:hover:bg-slate-800 dark:hover:text-white"
+                                ? "text-slate-900"
+                                : "text-slate-400 hover:text-slate-700"
                         }`}
                     >
                         {cat}
+                        {categoryFilter === cat && (
+                            <span className="absolute -bottom-[25px] left-0 h-0.5 w-full bg-slate-900" />
+                        )}
                     </button>
                 ))}
+            </div>
+
+            <div className="relative sm:w-56">
+                <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-xs text-slate-400"
+                />
+                <input
+                    type="text"
+                    placeholder="Search"
+                    value={searchTerm}
+                    onChange={(e) => onSearchChange(e.target.value)}
+                    className="w-full border-b border-slate-200 bg-transparent py-1.5 pl-5 text-sm text-slate-900 placeholder-slate-400 focus:border-slate-900 focus:outline-none"
+                />
             </div>
         </div>
     );

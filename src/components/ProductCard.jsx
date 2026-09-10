@@ -1,95 +1,65 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faPlug,
-    faMugSaucer,
-    faPen,
-    faBox,
-    faCartPlus,
-    faTrash
-} from '@fortawesome/free-solid-svg-icons';
-
-const categoryIcons = {
-    Electronics: faPlug,
-    Kitchen: faMugSaucer,
-    Stationery: faPen,
-};
+import { faCartPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function ProductCard({ product, onAddToCart, onDelete }) {
-    const icon = categoryIcons[product.category] || faBox;
-
     const handleAddToCart = (e) => {
-        e.preventDefault(); // Prevent navigation if wrapped in Link
+        e.preventDefault();
         onAddToCart(product);
     };
 
     return (
-        <div className="group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 shadow-md shadow-black/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-950/40">
-            {/* Subtle glow ring on hover */}
-            <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 ring-1 ring-inset ring-indigo-400/20 transition-opacity duration-300 group-hover:opacity-100"></div>
-
-            <Link to={`/products/${product.id}`}>
-                <div className="relative flex aspect-square items-center justify-center overflow-hidden bg-gradient-to-br from-slate-800 to-slate-850">
-                    {/* Category badge */}
-                    <span className="absolute left-3 top-3 z-10 rounded-full bg-slate-950/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-indigo-300 ring-1 ring-white/10 backdrop-blur-sm">
-                        {product.category}
-                    </span>
-
+        <div className="group overflow-hidden rounded-xl border border-slate-200 bg-slate-50 transition-shadow duration-200 hover:shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <Link to={`/products/${product.id}`} className="block">
+                <div className="aspect-square overflow-hidden bg-white">
                     {product.image ? (
                         <img
                             src={product.image}
                             alt={product.name}
                             loading="lazy"
-                            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-100"
+                            className="h-full w-full object-cover transition-transform duration-300 "
                             onError={(e) => {
                                 e.currentTarget.style.display = "none";
-                                e.currentTarget.nextSibling.style.display = "flex";
                             }}
                         />
                     ) : null}
-                    <FontAwesomeIcon
-                        icon={icon}
-                        className="text-4xl text-slate-500 transition group-hover:text-slate-400"
-                        style={{ display: product.image ? "none" : "flex" }}
-                    />
-
-                    {/* Bottom fade for polish */}
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/30 to-transparent"></div>
                 </div>
             </Link>
 
-            <div className="p-4">
+            <div className="p-3">
                 <Link to={`/products/${product.id}`}>
-                    <h3 className="mb-1.5 truncate font-semibold text-white transition-colors group-hover:text-indigo-300">
+                    <h3 className="truncate text-sm font-medium text-slate-900">
                         {product.name}
                     </h3>
                 </Link>
+                <p className="mt-0.5 text-xs text-slate-400">
+                    {product.category}
+                </p>
 
-                <div className="mb-4 flex items-baseline gap-1">
-                    <span className="text-xs text-slate-500">$</span>
-                    <span className="text-xl font-bold tracking-tight text-white">
-                        {product.price}
+                <div className="mt-3 flex items-center justify-between gap-2">
+                    <span className="text-sm font-semibold text-slate-900">
+                        ${product.price}
                     </span>
-                </div>
 
-                <div className="flex gap-2">
-                    <button
-                        onClick={handleAddToCart}
-                        className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-indigo-600 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-950/50 transition-all duration-200 hover:bg-indigo-500 hover:shadow-md hover:shadow-indigo-900/50 active:scale-95"
-                    >
-                        <FontAwesomeIcon icon={faCartPlus} />
-                        Add to Cart
-                    </button>
-
-                    {onDelete && (
+                    <div className="flex items-center gap-2">
                         <button
-                            onClick={() => onDelete(product.id)}
-                            className="rounded-lg border border-slate-700 px-3 text-sm text-slate-400 transition-all duration-200 hover:border-red-500/50 hover:bg-red-500/10 hover:text-red-400"
-                            title="Remove product"
+                            onClick={handleAddToCart}
+                            className="flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-slate-700"
                         >
-                            <FontAwesomeIcon icon={faTrash} />
+                            <FontAwesomeIcon icon={faCartPlus} className="text-xs" />
+                            Add
                         </button>
-                    )}
+
+                        {onDelete && (
+                            <button
+                                onClick={() => onDelete(product.id)}
+                                aria-label="Remove product"
+                                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-400 transition hover:border-red-200 hover:bg-red-50 hover:text-red-500"
+                            >
+                                <FontAwesomeIcon icon={faTrash} className="text-sm" />
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

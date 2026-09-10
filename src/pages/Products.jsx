@@ -1,9 +1,9 @@
 import { useState } from "react";
 import initialProducts from "../data/products.json";
-import { useCart } from "../context/CartContext";
 import ProductForm from "../components/ProductForm";
 import FilterBar from "../components/FilterBar";
 import ProductList from "../components/ProductList";
+import { useCart } from "../context/CartContext";
 
 function Products() {
     const { addToCart } = useCart();
@@ -31,9 +31,8 @@ function Products() {
     });
 
     return (
-        <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-12">
-            <h1 className="mb-6 flex items-center gap-2 text-2xl font-bold text-white">
-                <i className="fa-solid fa-shop text-indigo-400"></i>
+        <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-14">
+            <h1 className="mb-8 text-2xl font-semibold text-slate-900">
                 All Products
             </h1>
 

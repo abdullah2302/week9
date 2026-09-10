@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBagShopping, faCartShopping, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faBars, faXmark,faBagShopping } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from "../context/CartContext";
 
 function Navbar() {
@@ -9,17 +9,15 @@ function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const linkClass = ({ isActive }) =>
-        `relative py-1 transition-colors hover:text-indigo-400 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:rounded-full after:bg-indigo-400 after:transition-all after:duration-300 ${
+        `text-sm transition ${
             isActive
-                ? "text-white after:w-full"
-                : "text-slate-400 after:w-0"
+                ? "font-medium text-slate-900"
+                : "text-slate-500 hover:text-slate-900"
         }`;
 
     const mobileLinkClass = ({ isActive }) =>
-        `block rounded-lg px-4 py-2.5 text-base transition-colors ${
-            isActive
-                ? "bg-indigo-500/10 text-indigo-400"
-                : "text-slate-300 hover:bg-slate-800/80 hover:text-white"
+        `block py-2.5 text-base transition ${
+            isActive ? "font-medium text-slate-900" : "text-slate-500"
         }`;
 
     function closeMenu() {
@@ -27,20 +25,20 @@ function Navbar() {
     }
 
     return (
-        <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+        <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-sm">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
                 <Link
                     to="/"
                     onClick={closeMenu}
-                    className="flex items-center text-2xl font-bold tracking-tight text-white"
+                    className="flex items-center text-xl font-semibold tracking-tight text-slate-900"
                 >
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-400 ring-1 ring-indigo-500/20">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl text-indigo-400 ">
                         <FontAwesomeIcon icon={faBagShopping} className="text-base" />
                     </span>
                     Shop<span className="text-indigo-400">ly</span>
                 </Link>
 
-                <nav className="hidden gap-8 text-sm font-medium sm:flex">
+                <nav className="hidden gap-8 sm:flex">
                     <NavLink to="/" className={linkClass} end>
                         Home
                     </NavLink>
@@ -55,48 +53,43 @@ function Navbar() {
                     </NavLink>
                 </nav>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
                     <Link
                         to="/cart"
                         onClick={closeMenu}
-                        className="relative flex h-10 w-10 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-slate-800/80 hover:text-white"
+                        className="relative flex h-9 w-9 items-center justify-center rounded-full text-slate-700 transition hover:bg-slate-100"
                     >
-                        <FontAwesomeIcon
-                            icon={faCartShopping}
-                            className="text-lg"
-                        />
+                        <FontAwesomeIcon icon={faCartShopping} className="text-base" />
 
                         {cartCount > 0 && (
-                            <span className="absolute -right-0.5 -top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500 text-[11px] font-bold text-white ring-2 ring-slate-950">
+                            <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-slate-900 text-[10px] font-semibold text-white">
                                 {cartCount}
                             </span>
                         )}
                     </Link>
 
-                    {/* Hamburger button - visible only on small screens */}
                     <button
                         onClick={() => setIsMenuOpen((prev) => !prev)}
                         aria-label="Toggle menu"
                         aria-expanded={isMenuOpen}
-                        className="flex h-10 w-10 items-center justify-center rounded-full text-slate-300 transition-colors hover:bg-slate-800/80 hover:text-white sm:hidden"
+                        className="flex h-9 w-9 items-center justify-center rounded-full text-slate-700 transition hover:bg-slate-100 sm:hidden"
                     >
                         <FontAwesomeIcon
                             icon={isMenuOpen ? faXmark : faBars}
-                            className="text-lg"
+                            className="text-base"
                         />
                     </button>
                 </div>
             </div>
 
-            {/* Mobile dropdown menu */}
             <nav
-                className={`grid overflow-hidden border-slate-800/80 bg-slate-950/95 backdrop-blur-md transition-all duration-300 ease-in-out sm:hidden ${
+                className={`grid overflow-hidden border-slate-100 transition-all duration-200 ease-in-out sm:hidden ${
                     isMenuOpen
                         ? "grid-rows-[1fr] border-t opacity-100"
-                        : "grid-rows-[0fr] border-t-0 opacity-0"
+                        : "grid-rows-[0fr] opacity-0"
                 }`}
             >
-                <div className="flex flex-col gap-1 overflow-hidden px-4 py-3 text-sm font-medium">
+                <div className="overflow-hidden px-4 py-1">
                     <NavLink to="/" className={mobileLinkClass} onClick={closeMenu} end>
                         Home
                     </NavLink>
