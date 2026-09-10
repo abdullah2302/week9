@@ -4,17 +4,23 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 function ProductForm({ onAddProduct }) {
     const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState(null);
 
-    function handleImageChange(e) {
+     function handleImageChange(e) {
         const file = e.target.files[0];
         if (file) {
-            setImage(file);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            setImage(null);
         }
     }
-
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -26,8 +32,10 @@ function ProductForm({ onAddProduct }) {
 
         onAddProduct({
             name: name.trim(),
+            description: description.trim(),
             category: category.trim(),
             price: Number(price),
+            image: image,
         });
 
         setName("");
@@ -51,6 +59,13 @@ function ProductForm({ onAddProduct }) {
                 placeholder="Product name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className="min-w-[140px] flex-1 border-b border-slate-200 bg-transparent px-1 py-2 text-sm text-slate-900 placeholder-slate-400 focus:border-slate-900 focus:outline-none"
+            />
+            <input
+                type="text"
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 className="min-w-[140px] flex-1 border-b border-slate-200 bg-transparent px-1 py-2 text-sm text-slate-900 placeholder-slate-400 focus:border-slate-900 focus:outline-none"
             />
 
