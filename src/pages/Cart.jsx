@@ -27,7 +27,7 @@ function Cart() {
     const itemCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
     return (
-        <main className="mx-auto max-w-5xl px-4 py-14 bg-slate-50">
+        <main className="mx-auto max-w-5xl px-4 py-14 ">
             <h1 className="mb-8 text-2xl font-semibold text-slate-900">
                 Your Cart
                 <span className="ml-2 text-base font-normal text-slate-400">
@@ -36,13 +36,13 @@ function Cart() {
             </h1>
 
             <div className="grid gap-10 lg:grid-cols-3">
-                <div className="divide-y divide-slate-100 lg:col-span-2">
+                <div className="space-y-3 divide-slate-100  lg:col-span-2">
                     {cartItems.map((item) => (
                         <div
                             key={item.id}
-                            className="flex items-center gap-4 py-5"
+                            className="flex items-center bg-slate-100 rounded-full gap-4 p-5 h-20"
                         >
-                            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-slate-50">
+                            <div className="h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-slate-50">
                                 {item.image && (
                                     <img
                                         src={item.image}
@@ -88,7 +88,7 @@ function Cart() {
 
                             <button
                                 onClick={() => removeFromCart(item.id)}
-                                className="text-slate-300 transition hover:text-red-500"
+                                className="text-slate-500 transition hover:text-red-500"
                                 title="Remove item"
                             >
                                 <FontAwesomeIcon icon={faTrash} className="text-sm" />
