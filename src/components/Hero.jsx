@@ -31,7 +31,7 @@ const slides = [
     },
 ];
 
-const SLIDE_DURATION = 4000;
+const SLIDE_DURATION = 3000;
 
 function Hero() {
     const [current, setCurrent] = useState(0);
